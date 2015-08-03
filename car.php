@@ -1,46 +1,36 @@
+
+
 <?php
 class Car
+{
 
-
+public $make_model;
 public $price;
 public $miles;
 
 
-function _construct($car_model, $car_price = 2.00, $car_miles)
 
-
-
-
-
-
-$porsche = new Car();
-$porsche->make_model = "2014 Porsche 911";
-$porsche->price = car_price;
-$porsche->miles = 7864;
-
-$ford = new Car();
-$ford->make_model = "2011 Ford F450";
-$ford->price = 55995;
-$ford->miles = 14241;
-
-$lexus = new Car();
-$lexus->make_model = "2013 Lexus RX 350";
-$lexus->price = 44700;
-$lexus->miles = 20000;
-
-$mercedes = new Car();
-$mercedes->make_model = "Mercedes Benz CLS550";
-$mercedes->price = 39900;
-$mercedes->miles = 37979;
-
-$cars = array($porsche, $ford, $lexus, $mercedes);
-
-$cars_matching_search = array();
-foreach ($cars as $car) {
-    if ($car->price < $_GET["price"]) {
-        array_push($cars_matching_search, $car);
-    }
+function __construct ($car_model, $car_price =12, $car_miles = 100)
+{
+  $this->make_model = $car_model;
+  $this->price = $car_price;
+  $this->miles = $car_miles;
 }
+
+
+}
+
+$car_one = new Car( "2014 Porsche 911" );
+$car_two = new Car("2011 Ford F450" );
+$car_three = new Car("2013 Lexus RX 350");
+$car_four = new Car("Mercedes Benz CLS550");
+
+
+$cars = array($car_one, $car_two, $car_three, $car_four);
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +42,7 @@ foreach ($cars as $car) {
     <h1>Your Car Dealership</h1>
     <ul>
         <?php
-            foreach ($cars_matching_search as $car) {
+            foreach ($cars as $car) {
                 echo "<li> $car->make_model </li>";
                 echo "<ul>";
                     echo "<li> $$car->price </li>";
